@@ -3,28 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .collection-list {
+            color: orange;
+            list-style-type: square;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        .book-list {
+            color: black;
+            list-style-type: disc;
+            font-size: 18px;
+            text-transform: capitalize;
+        }
+        .book-details {
+            color: red;
+            list-style-type: none;
+            font-size: 15px;
+            text-transform: lowercase;
+        }
+        .book-details p {
+            margin: 0;
+        }
+        .book-details .size {
+            color: blue;
+        }
+        .book-details .author {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 {% for collection in collections %}
-<ul style="color: orange; list-style-type:square; font-size: 20px; text-transform: uppercase;">
+<ul class="collection-list">
     <li>
-        <b>{{collection.name}}</b>
+        <b>{{ collection.name }}</b>
     </li>
     {% for book in collection.book.all %}
-    <ul style="color: black; list-style-type:disc; font-size: 18px; text-transform: capitalize;">
+    <ul class="book-list">
         <li>
-            <b>{{book.name}}</b>
+            <b>{{ book.name }}</b>
         </li>
-        <ul style="color: red; list-style-type:none; font-size: 15px; text-transform: lowercase;">
+        <ul class="book-details">
             <li>
-                <p style="color: blue;">Size: {{ book.size }} MB</p>
+                <p class="size">Size: {{ book.size }} MB</p>
             </li>
             <li>
-                <p style="color: red;">Author: {{ book.authors }}</p>
+                <p class="author">Author: {{ book.authors }}</p>
             </li>
         </ul>
     </ul>
-
     {% endfor %}
 </ul>
 {% endfor %}
