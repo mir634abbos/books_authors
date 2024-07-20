@@ -50,11 +50,11 @@
                 <p class="size">Size: {{ book.size }} MB</p>
             </li>
             <li>
-                <p class="author">Author:
+                <b class="author">Author:
                     {% for author in book.authors.all %}
-                    <span>{{author.name}}</span>{% if not forloop.last %}, {% endif %}
+                    <b>{{author.name}}</b>{% if not forloop.last %}, {% endif %}
                     {% endfor %}
-                </p>
+                </b>
             </li>
         </ul>
     </ul>
